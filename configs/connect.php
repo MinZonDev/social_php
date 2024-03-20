@@ -1,14 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$databasename = "social";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $databasename);
-
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'social');
+ 
+/* Attempt to connect to MySQL database */
+$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if($mysqli === false){
+    die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
-echo "Connected successfully";
 ?>
